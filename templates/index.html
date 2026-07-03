@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Human Development Index Predictor</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Human Development Index Predictor</h1>
+
+<p class="subtitle">
+Predict the Human Development Index using Machine Learning
+</p>
+
+<form action="/predict" method="POST">
+
+<div class="input-group">
+
+<label>Life Expectancy at Birth</label>
+
+<input
+type="number"
+step="any"
+name="life_expectancy"
+placeholder="Example : 72.5"
+required>
+
+</div>
+
+<div class="input-group">
+
+<label>Expected Years of Schooling</label>
+
+<input
+type="number"
+step="any"
+name="expected_schooling"
+placeholder="Example : 15.6"
+required>
+
+</div>
+
+<div class="input-group">
+
+<label>Mean Years of Schooling</label>
+
+<input
+type="number"
+step="any"
+name="mean_schooling"
+placeholder="Example : 11.2"
+required>
+
+</div>
+
+<div class="input-group">
+
+<label>Gross National Income (GNI) Per Capita</label>
+
+<input
+type="number"
+step="any"
+name="gni"
+placeholder="Example : 25000"
+required>
+
+</div>
+
+<button type="submit">
+
+Predict HDI
+
+</button>
+
+</form>
+{% if prediction_text %}
+
+<div class="result">
+
+<h2>Prediction Result</h2>
+
+<h1>{{ prediction_text }}</h1>
+
+<h3>{{ category }}</h3>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+
+</html>
